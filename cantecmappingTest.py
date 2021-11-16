@@ -8,7 +8,7 @@ import pydeck as pdk
 # SETTING PAGE CONFIG TO WIDE MODE
 st.set_page_config(layout="wide")
 
-# LOADING DATA
+# LOADING DATAs
 DATE_TIME = "date/time"
 data = pd.read_csv('Cantec-Location-Data-Nov.csv')
 
@@ -20,9 +20,9 @@ def load_data(nrows):
     data = pd.read_csv("Cantec-Location-Data-Nov.csv", nrows=nrows)
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis="columns", inplace=True)
-    data['Date/Time'] = pd.to_datetime(data['Date/Time'])
+    data['Date/Time'] = pd.to_datetime(data['date/time'])
     return data
-#load_data(100)
+load_data(70000)
 
 # CREATING FUNCTION FOR MAPS
 
@@ -60,7 +60,7 @@ with row1_2:
     st.write(
     """
     ##
-    Select delivering hours
+  
     """)
 
 # FILTERING DATA BY HOUR SELECTED
